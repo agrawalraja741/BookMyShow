@@ -1,0 +1,158 @@
+Region
+{
+id: int
+name : String
+regionCode : int
+theaters : List<Theater>
+}
+
+Theater
+{
+id: int
+name : String
+theaterId : int
+Address : String
+theaterStatus : TheaterStatus
+screens : List<Screen>
+}
+
+enum TheaterStatus
+{
+OPERATIONAL,
+UN_OPERATIONAL
+}
+
+Screen
+{
+id: int
+name : String
+screenId : int
+screenType : ScreenType
+seats : List<seat>
+screenStatus : ScreenStatus
+}
+
+enum ScreenType
+{
+     2D, 3D, DOLBY_IMAX, DOLBY_VISION
+}
+
+enum ScreenStatus
+{
+OPERATIONAL,
+UN_OPERATIONAL,
+HOUSE_FULL
+}
+
+Show
+{
+id: int
+name : String
+showId : int
+movie : Movie
+showType : ShowType
+showseats : List<ShowSeat>
+showStatus : ShowStatus
+}
+
+enum ShowType
+{
+     2D, 3D, DOLBY_IMAX, DOLBY_VISION
+}
+
+enum ScreenStatus
+{
+NOT_FULL
+HOUSE_FULL
+}
+
+Movie
+{
+id: int
+name : String
+MovieId : int
+description : String
+geners : List<Gener>
+availableLanguages :  List<Language>
+}
+
+enum Genere
+{
+HORROR, COMEDY , ..
+}
+
+enum Language
+{
+ENGLISH , HINDI , ..
+}
+
+Seat
+{
+id: int
+seatId : int
+seatType : SeatType
+seatStatus : SeatStatus
+}
+
+ShowSeat
+{
+id: int
+showSeatId : int
+showSeatType : ShowSeatType
+showSeatStatus : SeatStatus
+user User;
+}
+
+enum ShowSeatStatus
+{
+AVAILABLE , BLOCKED , BOOKED
+}
+
+ShowSeatType
+{
+seatType SeatType
+price int;
+}
+
+
+
+User
+{
+id int
+name String
+mobileNo String
+password String
+}
+
+Booking
+{
+id int
+bookingId int
+bookingDate datetime
+bookingStatus BookingStatus
+payment Payment
+}
+
+enum BookingStatus
+{
+SUCCESS , FAILED
+}
+
+Payment
+{
+id int
+transactionId String
+transactionDateTime DateTime
+paymentStatus PaymentStatus
+paymentMode PaymentMode
+}
+
+enum PaymentStatus
+{
+SUCCESS , FAILED
+}
+
+enum PaymentMode
+{
+UPI , CARD
+}

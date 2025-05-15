@@ -1,3 +1,20 @@
 Requirement details:
 
 
+There are multiple regions and user needs to select one
+Each region can have multiple theaters.
+Each theater can have multiple screens.
+Each screen will have multiple seats.
+Each screen will have run multiple shows during the day.
+Movie will have name , description, duration, genere, list of language
+User should be able to book seats for a particular show running on a particular screen on a particular theater.
+Application should be able to handle concurrent transactions.
+Payment can be make using UPI, CARD only.
+Application has refund and cancellation policy defined.
+there will be different seat types.  PLATINUM, GOLD, SILVER.
+Based on show timings and seat type price will be decided.
+user should be able to sign up and login to application and can select region,
+based on that user can see list of movies.
+user should be able to see theaters abd timings for that movie.
+Movies, shows and screens will support features like 2D, 3D, DOLBY_IMAX, DOLBY_VISION
+
