@@ -1,4 +1,4 @@
-Region
+class Region
 {
 id: int
 name : String
@@ -6,7 +6,7 @@ regionCode : int
 theaters : List<Theater>
 }
 
-Theater
+class Theater
 {
 id: int
 name : String
@@ -22,7 +22,7 @@ OPERATIONAL,
 UN_OPERATIONAL
 }
 
-Screen
+class Screen
 {
 id: int
 name : String
@@ -44,7 +44,7 @@ UN_OPERATIONAL,
 HOUSE_FULL
 }
 
-Show
+class Show
 {
 id: int
 name : String
@@ -66,7 +66,7 @@ NOT_FULL
 HOUSE_FULL
 }
 
-Movie
+class Movie
 {
 id: int
 name : String
@@ -86,7 +86,7 @@ enum Language
 ENGLISH , HINDI , ..
 }
 
-Seat
+class Seat
 {
 id: int
 seatId : int
@@ -94,7 +94,7 @@ seatType : SeatType
 seatStatus : SeatStatus
 }
 
-ShowSeat
+class ShowSeat
 {
 id: int
 showSeatId : int
@@ -108,23 +108,22 @@ enum ShowSeatStatus
 AVAILABLE , BLOCKED , BOOKED
 }
 
-ShowSeatType
+class ShowSeatType
 {
 seatType SeatType
 price int;
 }
 
-
-
-User
+class User
 {
 id int
 name String
 mobileNo String
 password String
+bookings List<Booking>
 }
 
-Booking
+class Booking
 {
 id int
 bookingId int
@@ -138,7 +137,7 @@ enum BookingStatus
 SUCCESS , FAILED
 }
 
-Payment
+class Payment
 {
 id int
 transactionId String
@@ -155,4 +154,19 @@ SUCCESS , FAILED
 enum PaymentMode
 {
 UPI , CARD
+}
+
+interface PriceCalculationStrategy
+{
+    int calculatePrice(Booking booking)
+}
+
+HighDemandShowPriceCalculationStrategy implements PriceCalculationStrategy
+{
+    int calculatePrice(Booking booking)
+}
+
+CommonPriceCalculationStrategy implements PriceCalculationStrategy
+{
+    int calculatePrice(Booking booking)
 }
