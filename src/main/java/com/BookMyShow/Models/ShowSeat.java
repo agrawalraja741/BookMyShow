@@ -1,20 +1,20 @@
 package com.BookMyShow.Models;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.awt.print.Book;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
 public class ShowSeat extends BaseEntity{
 
-    @Enumerated(EnumType.ORDINAL)
-    private SeatType showSeatType;
+    @ManyToMany
+    private List<ShowSeatType> showSeatType;
+
     @Enumerated(EnumType.ORDINAL)
     private SeatStatus showSeatStatus;
 
@@ -22,5 +22,11 @@ public class ShowSeat extends BaseEntity{
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Booking booking;
+
+    @ManyToOne
+    private Show show;
 
 }

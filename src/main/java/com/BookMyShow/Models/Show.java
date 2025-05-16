@@ -19,7 +19,7 @@ public class Show extends BaseEntity{
     @Enumerated(EnumType.ORDINAL)
     private Screen_Show_Type showType;
 
-    @OneToMany
+    @OneToMany(mappedBy = "show")
     private List<ShowSeat> showSeats;
 
     private ShowStatus showStatus;

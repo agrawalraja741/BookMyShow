@@ -15,7 +15,7 @@ public class Region extends BaseEntity{
     private String regionName;
     private int regionCode;
 
-    @OneToMany
+    @OneToMany(mappedBy = "theaterRegion")
     private List<Theater> theaters;
 
 }

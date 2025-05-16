@@ -17,7 +17,7 @@ public class Booking extends BaseEntity{
     @OneToOne
     private Payment payment;
 
-    @OneToMany
+    @OneToMany(mappedBy = "booking")
     private List<ShowSeat> showSeats;
 
     @ManyToOne

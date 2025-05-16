@@ -13,8 +13,8 @@ public class User extends BaseEntity{
     private String username;
     private String password;
     private String MobileNumber;
-    private String Email;
+    private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<Booking> bookings;
 }

@@ -18,6 +18,6 @@ public class Theater extends  BaseEntity{
     @ManyToOne
     private Region theaterRegion;
 
-    @OneToMany
+    @OneToMany(mappedBy = "theater")
     private List<Screen> screens;
 }

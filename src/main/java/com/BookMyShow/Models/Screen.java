@@ -1,9 +1,6 @@
 package com.BookMyShow.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -18,11 +15,14 @@ public class Screen extends BaseEntity {
     @Enumerated(EnumType.ORDINAL)
     private Screen_Show_Type screenType ;
 
-    @OneToMany
+    @OneToMany(mappedBy = "screen")
     private List<Seat> seats;
 
     @Enumerated(EnumType.ORDINAL)
     private ScreenStatus screenStatus;
+
+    @ManyToOne
+    private Theater theater;
 
 
 }
