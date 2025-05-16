@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ser.Serializers;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -12,8 +13,6 @@ import java.time.LocalDate;
 @Entity
 public class ShowSeat extends BaseEntity{
 
-    private int showSeatNo;
-
     @Enumerated(EnumType.ORDINAL)
     private SeatType showSeatType;
     @Enumerated(EnumType.ORDINAL)
@@ -21,6 +20,7 @@ public class ShowSeat extends BaseEntity{
 
     private LocalDate blockedAt;
 
+    @ManyToOne
     private User user;
 
 }

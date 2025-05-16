@@ -13,9 +13,6 @@ public class Show extends BaseEntity{
 
     private String name;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int showId;
-
     @ManyToOne
     private Movie movie;
 

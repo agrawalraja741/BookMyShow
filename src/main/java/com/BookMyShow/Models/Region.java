@@ -12,9 +12,6 @@ import java.util.List;
 @Entity
 public class Region extends BaseEntity{
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int regionId;
-
     private String regionName;
     private int regionCode;
 

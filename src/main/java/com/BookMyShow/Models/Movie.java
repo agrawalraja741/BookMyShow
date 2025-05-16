@@ -11,17 +11,14 @@ public class Movie extends BaseEntity{
 
     private String title;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int MovieId;
-
     private String description;
 
     @Enumerated(EnumType.ORDINAL)
-    @ManyToMany
+    @ElementCollection
     private List<Genre> genres;
 
     @Enumerated(EnumType.ORDINAL)
-    @ManyToMany
+    @ElementCollection
     private List<Language> languages;
 
 }

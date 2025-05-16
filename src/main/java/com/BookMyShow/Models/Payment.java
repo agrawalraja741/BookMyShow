@@ -10,9 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Payment extends BaseEntity{
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int transactionId;
-
+    private String paymentId;
     private LocalDateTime transactionDateTime;
 
     @Enumerated(EnumType.ORDINAL)

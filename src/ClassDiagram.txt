@@ -10,7 +10,6 @@ class Theater
 {
 id: int
 name : String
-theaterId : int
 Address : String
 theaterStatus : TheaterStatus
 screens : List<Screen>
@@ -26,7 +25,6 @@ class Screen
 {
 id: int
 name : String
-screenId : int
 screenType : Screen_Show_Type
 seats : List<seat>
 screenStatus : ScreenStatus
@@ -48,7 +46,6 @@ class Show
 {
 id: int
 name : String
-showId : int
 movie : Movie
 showType : Screen_Show_Type
 showseats : List<ShowSeat>
@@ -68,7 +65,6 @@ class Movie
 {
 id: int
 title : String
-MovieId : int
 description : String
 genres : List<Genre>
 availableLanguages :  List<Language>
@@ -87,7 +83,6 @@ ENGLISH , HINDI , ..
 class Seat
 {
 id: int
-seatId : int
 seatType : SeatType
 seatStatus : SeatStatus
 }
@@ -95,7 +90,6 @@ seatStatus : SeatStatus
 class ShowSeat
 {
 id: int
-showSeatId : int
 showSeatType : ShowSeatType
 showSeatStatus : SeatStatus
 user User;
@@ -125,7 +119,7 @@ bookings List<Booking>
 class Booking
 {
 id int
-bookingId int
+bookingId String
 bookingDate datetime
 bookingStatus BookingStatus
 payment Payment
@@ -141,7 +135,7 @@ SUCCESS , FAILED
 class Payment
 {
 id int
-transactionId String
+paymentId String
 transactionDateTime DateTime
 paymentStatus PaymentStatus
 paymentMode PaymentMode

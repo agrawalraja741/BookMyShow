@@ -9,9 +9,6 @@ import java.util.List;
 @Entity
 public class Theater extends  BaseEntity{
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int theaterId;
-
     private String theaterName;
     private String theaterAddress;
 

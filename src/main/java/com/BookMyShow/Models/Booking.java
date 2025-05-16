@@ -10,12 +10,11 @@ import java.util.List;
 @Entity
 public class Booking extends BaseEntity{
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int BookingID;
-
+    private String bookingId;
     private LocalDateTime BookingDate;
     private BookingStatus bookingStatus;
 
+    @OneToOne
     private Payment payment;
 
     @OneToMany
