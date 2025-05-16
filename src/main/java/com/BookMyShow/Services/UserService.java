@@ -39,4 +39,24 @@ public class UserService {
 
         return -1;
     }
+
+    public User loginUser( String email, String password )
+    {
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if(optionalUser.isEmpty())
+        {
+            throw new RuntimeException("User does not exist");
+        }
+
+        User savedUser = optionalUser.get();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if(encoder.matches(password, savedUser.getPassword()))
+        {
+            return savedUser;
+        }
+        else
+        {
+            throw new RuntimeException("Incorrect password");
+        }
+    }
 }
