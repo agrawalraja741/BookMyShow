@@ -27,12 +27,12 @@ class Screen
 id: int
 name : String
 screenId : int
-screenType : ScreenType
+screenType : Screen_Show_Type
 seats : List<seat>
 screenStatus : ScreenStatus
 }
 
-enum ScreenType
+enum Screen_Show_Type
 {
      2D, 3D, DOLBY_IMAX, DOLBY_VISION
 }
@@ -50,17 +50,15 @@ id: int
 name : String
 showId : int
 movie : Movie
-showType : ShowType
+showType : Screen_Show_Type
 showseats : List<ShowSeat>
 showStatus : ShowStatus
+startTime : LocalDateTime
+exitTime : LocalDateTime
+screen : List<Screen>
 }
 
-enum ShowType
-{
-     2D, 3D, DOLBY_IMAX, DOLBY_VISION
-}
-
-enum ScreenStatus
+enum ShowStatus
 {
 NOT_FULL
 HOUSE_FULL
@@ -69,14 +67,14 @@ HOUSE_FULL
 class Movie
 {
 id: int
-name : String
+title : String
 MovieId : int
 description : String
-geners : List<Gener>
+genres : List<Genre>
 availableLanguages :  List<Language>
 }
 
-enum Genere
+enum Genre
 {
 HORROR, COMEDY , ..
 }
@@ -101,6 +99,7 @@ showSeatId : int
 showSeatType : ShowSeatType
 showSeatStatus : SeatStatus
 user User;
+blockedAt : LocalDateTime
 }
 
 enum ShowSeatStatus
@@ -130,6 +129,8 @@ bookingId int
 bookingDate datetime
 bookingStatus BookingStatus
 payment Payment
+showSeats List<ShowSeat>
+user User
 }
 
 enum BookingStatus
@@ -154,19 +155,4 @@ SUCCESS , FAILED
 enum PaymentMode
 {
 UPI , CARD
-}
-
-interface PriceCalculationStrategy
-{
-    int calculatePrice(Booking booking)
-}
-
-HighDemandShowPriceCalculationStrategy implements PriceCalculationStrategy
-{
-    int calculatePrice(Booking booking)
-}
-
-CommonPriceCalculationStrategy implements PriceCalculationStrategy
-{
-    int calculatePrice(Booking booking)
 }
