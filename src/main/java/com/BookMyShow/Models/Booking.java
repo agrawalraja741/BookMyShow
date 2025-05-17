@@ -14,6 +14,8 @@ public class Booking extends BaseEntity{
     private LocalDateTime BookingDate;
     private BookingStatus bookingStatus;
 
+    private int amount;
+
     @OneToOne
     private Payment payment;
 
@@ -22,5 +24,8 @@ public class Booking extends BaseEntity{
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Show show;
 
 }

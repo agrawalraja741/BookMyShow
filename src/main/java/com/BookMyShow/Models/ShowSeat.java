@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.awt.print.Book;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -18,7 +19,7 @@ public class ShowSeat extends BaseEntity{
     @Enumerated(EnumType.ORDINAL)
     private SeatStatus showSeatStatus;
 
-    private LocalDate blockedAt;
+    private LocalDateTime blockedAt;
 
     @ManyToOne
     private User user;

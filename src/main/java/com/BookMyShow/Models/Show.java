@@ -30,6 +30,9 @@ public class Show extends BaseEntity{
     @ManyToMany
     private List<Screen> screens;
 
+    @OneToMany(mappedBy = "show")
+    private List<Booking> bookings;
+
 
 
 }

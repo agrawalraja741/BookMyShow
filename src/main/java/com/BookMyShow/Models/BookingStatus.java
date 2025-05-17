@@ -1,5 +1,5 @@
 package com.BookMyShow.Models;
 
 public enum BookingStatus {
-    SUCCESS , FAILED
+    SUCCESS , FAILED , IN_PROGRESS , COMPLETED
 }
