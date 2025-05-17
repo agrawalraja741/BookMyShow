@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@Entity
+@Entity(name = "bms_show")
 public class Show extends BaseEntity{
 
     private String name;

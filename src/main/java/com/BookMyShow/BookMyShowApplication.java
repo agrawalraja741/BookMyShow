@@ -41,15 +41,15 @@ public class BookMyShowApplication implements CommandLineRunner {
 		userSignupRequestDTO.setPassword("password1231212");
 		UserSignupResponseDTO userSignupResponseDTOLogin = userController.loginUser(userSignupRequestDTO);
 
-		if(userSignupResponseDTO != null)
+		if(userSignupResponseDTOLogin != null)
 		{
-			if(userSignupResponseDTO.getResponseStatus().equals(ResponseStatus.SUCCESS))
+			if(userSignupResponseDTOLogin.getResponseStatus().equals(ResponseStatus.SUCCESS))
 			{
-				System.out.println(userSignupResponseDTO.getMessage() + " UserId :  " + userSignupResponseDTO.getUserId());
+				System.out.println(userSignupResponseDTOLogin.getMessage() + " UserId :  " + userSignupResponseDTOLogin.getUserId());
 			}
 			else
 			{
-				System.out.println(userSignupResponseDTO.getMessage());
+				System.out.println(userSignupResponseDTOLogin.getMessage());
 			}
 		}
 		else

@@ -35,16 +35,16 @@ public class UserController {
             }
             else
             {
-                userSignupResponseDTO.setUserId(userId);
-                userSignupResponseDTO.setMessage("User not signed up. Please try again.");
-                userSignupResponseDTO.setResponseStatus(ResponseStatus.FAILURE);
-
+                throw new RuntimeException("User not signed up. Please try again.");
             }
 
             return userSignupResponseDTO;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            userSignupResponseDTO.setMessage(e.getMessage());
+            userSignupResponseDTO.setResponseStatus(ResponseStatus.FAILURE);
+            return userSignupResponseDTO;
         }
     }
 
@@ -67,16 +67,16 @@ public class UserController {
             }
             else
             {
-                userSignupResponseDTO.setUserId(-1);
-                userSignupResponseDTO.setMessage("User not found. Please try again.");
-                userSignupResponseDTO.setResponseStatus(ResponseStatus.FAILURE);
-
+               throw new RuntimeException("Login Failed");
             }
 
             return userSignupResponseDTO;
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+            userSignupResponseDTO.setMessage(e.getMessage());
+            userSignupResponseDTO.setResponseStatus(ResponseStatus.FAILURE);
+            return userSignupResponseDTO;
         }
     }
 }
