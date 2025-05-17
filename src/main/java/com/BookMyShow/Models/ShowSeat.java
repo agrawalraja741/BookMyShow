@@ -13,8 +13,8 @@ import java.util.List;
 @Entity
 public class ShowSeat extends BaseEntity{
 
-    @ManyToMany
-    private List<ShowSeatType> showSeatType;
+    @ManyToOne
+    private ShowSeatType showSeatType;
 
     @Enumerated(EnumType.ORDINAL)
     private SeatStatus showSeatStatus;

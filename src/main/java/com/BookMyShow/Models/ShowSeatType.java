@@ -1,9 +1,6 @@
 package com.BookMyShow.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -16,6 +13,6 @@ public class ShowSeatType extends BaseEntity{
     private SeatType seatType;
     private int price;
 
-    @ManyToMany(mappedBy = "showSeatType")
+    @OneToMany(mappedBy = "showSeatType")
     private List<ShowSeat> showSeat;
 }

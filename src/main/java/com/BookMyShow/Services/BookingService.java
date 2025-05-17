@@ -48,10 +48,13 @@ public class BookingService {
         List<ShowSeat> showSeats = reserveSeats(showSeatIds, showId);
 
 
-        int amount =1000 ;
+        int amount =0 ;
 
-        //calculate price based on seattypes
-
+        for(ShowSeat showSeat : showSeats)
+        {
+            int price = showSeat.getShowSeatType().getPrice();
+            amount += price;
+        }
 
         Booking booking = new Booking();
         booking.setUser(optionalUser.get());
