@@ -24,5 +24,7 @@ public class Screen extends BaseEntity {
     @ManyToOne
     private Theater theater;
 
+    @ManyToMany
+    private List<Show> show;
 
 }

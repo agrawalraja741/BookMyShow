@@ -1,8 +1,10 @@
 package com.BookMyShow;
 
 import com.BookMyShow.Controllers.BookingController;
+import com.BookMyShow.Controllers.RegionController;
 import com.BookMyShow.Controllers.UserController;
 import com.BookMyShow.DTOs.*;
+import com.BookMyShow.Models.Region;
 import com.BookMyShow.Services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,6 +22,9 @@ public class BookMyShowApplication implements CommandLineRunner {
 
 	@Autowired
 	private BookingController bookingController;
+
+	@Autowired
+	private RegionController regionController;
 
 
 	@Override
@@ -62,6 +67,14 @@ public class BookMyShowApplication implements CommandLineRunner {
 		else
 		{
 			System.out.println("Please try again!");
+		}
+
+
+		RegionResponseDTO regionResponseDTO = regionController.getAllRegions();
+
+		for(Region region : regionResponseDTO.getRegions())
+		{
+			System.out.println(region.getRegionName());
 		}
 
 		BookingRequestDTO bookingRequestDTO = new BookingRequestDTO();

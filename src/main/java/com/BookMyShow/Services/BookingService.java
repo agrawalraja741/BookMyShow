@@ -101,7 +101,7 @@ public class BookingService {
 
         ShowSeat showSeatDtls = optionalShowSeat.get();
 
-        System.out.println(showSeatDtls.getId()+ "  " + showSeatDtls.getShowSeatStatus() );
+        //System.out.println(showSeatDtls.getId()+ "  " + showSeatDtls.getShowSeatStatus() );
 
         if(showSeatDtls.getShowSeatStatus().equals(SeatStatus.BOOKED))
         {
